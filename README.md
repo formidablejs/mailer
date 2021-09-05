@@ -84,9 +84,9 @@ Here is a list of all the methods available on the `Mail` class.
 
  Method    | Params                               | Description
 -----------|:-------------------------------------|:------------------------------------------
- `to`      | `recipient: String[]|String`         | Recipients of the email.
- `cc`      | `recipient: String[]|String`         | Carbon copy recipients of the email.
- `bcc`     | `recipient: String[]|String`         | Blind carbon copy recipients of the email.
+ `to`      | `recipient: String[] or String`      | Recipients of the email.
+ `cc`      | `recipient: String[] or String`      | Carbon copy recipients of the email.
+ `bcc`     | `recipient: String[] or String`      | Blind carbon copy recipients of the email.
  `from`    | `name: String, email: String`        | Sender of the email.
  `replyTo` | `email: String`                      | Reply to address of the email.
  `raw`     | `content: String, text: String|null` | Raw email content.

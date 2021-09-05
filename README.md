@@ -14,7 +14,7 @@ Formidable Mailer is a simple mailer library for sending emails. This mailer pac
 
 ## Configuration
 
-Before you can start sending emails, you will need to configure your default transport. You can do so by passing a transport object to the `configure()` method of the `Mail` class:
+Before you can start sending emails, you will need to configure your default transport. You can do so by passing a transport config object to the `configure` method of the `Mail` class:
 
 ```js
 import { Mail } from '@formidablejs/mailer'
@@ -38,7 +38,7 @@ Mail.configure({
 })
 ```
 
-> Note, there's no need to configure Formidable Mailer in a Formidablejs application as this is done for you automatically.
+> Note, there's no need to configure Formidable Mailer in a Formidable application as this is done for you automatically.
 
 ## Sending Raw Emails
 

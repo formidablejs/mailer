@@ -1,4 +1,4 @@
-import { config } from '@formidablejs/helpers'
+import { helpers } from '@formidablejs/framework'
 
 export tag LayoutComponent
 	<self>
@@ -27,4 +27,4 @@ export tag LayoutComponent
 
 										<tr>
 											<td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 2px; font-size: 12px; color: #999999; text-align: center;">
-												<p> "&copy; {new Date!.getFullYear!} {config('app.name')}. All rights reserved."
+												<p> "&copy; {new Date!.getFullYear!} {helpers.config('app.name')}. All rights reserved."

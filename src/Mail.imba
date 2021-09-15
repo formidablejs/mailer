@@ -20,6 +20,8 @@ module.exports = class Mail
 	def transport
 		const default = settings.config.default
 
+		if default == 'none' then return null
+
 		let mailer = settings.config.mailers[default]
 
 		nodemailer.createTransport(
@@ -56,7 +58,7 @@ module.exports = class Mail
 		self.ccList = Array.isArray(emails) ? emails.join(', ') : emails
 
 		self
-	
+
 	def bcc emails\String[]|String
 		self.bccList = Array.isArray(emails) ? emails.join(', ') : emails
 
@@ -73,6 +75,8 @@ module.exports = class Mail
 		self
 
 	def raw content\String, text\String = null
+		if settings.config.default == 'none' then return null
+
 		const mail = {
 			from: self.emailFrom ?? "{settings.config.from.name} <{settings.config.from.address}>"
 			to: self.toList
@@ -88,6 +92,8 @@ module.exports = class Mail
 		await self.transport!.sendMail(mail)
 
 	def send mailable\Mailable
+		if settings.config.default == 'none' then return null
+
 		if mailable.subject then self.emailSubject = mailable.subject
 
 		self.raw(mailable.render ? String(await mailable.render!) : '')

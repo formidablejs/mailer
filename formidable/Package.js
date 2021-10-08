@@ -1,7 +1,7 @@
 exports.Package = class Package {
   publish() {
     return {
-      'email-templates': {
+      'components': {
         paths: {
           'resources/views/mail/vendor': './formidable/templates',
         }

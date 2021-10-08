@@ -1,14 +1,14 @@
 exports.Package = class Package {
   publish() {
     return {
-      "email-templates": {
+      vendor: {
         paths: {
-          'resources/views/mail/vendor': './formidable/templates',
+          'resources/views/email/vendor': './install/templates',
         }
       },
       config: {
         paths: {
-          'config/mail.imba': './formidable/config.imba'
+          'config/mail.imba': './install/config.imba'
         }
       }
     }

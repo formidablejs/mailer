@@ -18,6 +18,7 @@ declare class Mail {
     emailReplyTo: any;
     emailFrom: any;
     emailSubject: any;
+    emailAttachments: any;
     transport(): any;
     /**
     @param {Object} mailer
@@ -49,6 +50,10 @@ declare class Mail {
     @param {String} text
     */
     raw(content: string, text?: string): Promise<any>;
+    /**
+    @param {Object[]|Object} attachment
+    */
+    attach(attachment?: any[] | any): import("./Mail");
     /**
     @param {Mailable} mailable
     */

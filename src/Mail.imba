@@ -13,6 +13,7 @@ module.exports = class Mail
 	prop emailReplyTo\String
 	prop emailFrom
 	prop emailSubject\String
+	prop emailAttachments\Object[]
 
 	def constructor emails\String[]|String
 		self.toList = Array.isArray(emails) ? emails.join(', ') : emails
@@ -88,13 +89,29 @@ module.exports = class Mail
 		if self.ccList then mail.cc = self.ccList
 		if self.bccList then mail.bcc = self.bccList
 		if self.emailReplyTo then mail.replyTo = self.emailReplyTo
+		if self.emailAttachments then mail.attachments = self.emailAttachments
 
 		await self.transport!.sendMail(mail)
+
+	def attach attachment\Object[]|Object = []
+		if Array.isArray(attachment)
+			self.emailAttachments = attachment
+
+			return self
+
+		if !self.emailAttachments
+			self.emailAttachments = []
+
+		self.emailAttachments.push attachment
+
+		self
 
 	def send mailable\Mailable
 		if settings.config.default == 'none' then return null
 
 		if mailable.subject then self.emailSubject = mailable.subject
+
+		if mailable.attachments then self.emailAttachments = mailable.attachments
 
 		self.raw(mailable.render ? String(await mailable.render!) : '')
 

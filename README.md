@@ -176,6 +176,33 @@ Now that you've created a Mailable, you can use the `send` method of the `Mail` 
 Mail.to('email@example').send(new WelcomeEmail)
 ```
 
+### Attachments
+
+You can attach files to the email by passing an array of attachment objects or a single object to the `attach` method:
+
+```js
+import { Mailable } from '@formidablejs/mailer'
+import path from 'path'
+
+export default WelcomeEmail < Mailable
+
+	prop subject\String
+	prop name\String
+
+	def constructor name\String
+		super!
+
+		self.subject = 'Welcome to Formidable'
+		self.name = name
+
+		const file\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
+
+		self.attach({ path: file })
+
+	def render
+		<p> "Welcome to Formidable, {self.name}"
+```
+
 ## Mail API
 
 Here is a list of all the methods available on the `Mail` class.

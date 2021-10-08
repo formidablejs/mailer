@@ -1,5 +1,9 @@
 # Formidable Mailer
 
+## Introduction
+
+Formidable Mailer is a simple mailer library for sending emails. This mailer package is built on top of [nodemailer](https://nodemailer.com/).
+
 ## Install
 
 This package is automatically installed with the Formidable Framework.
@@ -25,10 +29,6 @@ craftsman publish --package=@formidablejs/mailer --tag="components,config"
 ```
 
 > Note: Formidable will automatically publish the package during project setup.
-
-## Introduction
-
-Formidable Mailer is a simple mailer library for sending emails. This mailer package is built on top of [nodemailer](https://nodemailer.com/).
 
 ## Configuration
 

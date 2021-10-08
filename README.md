@@ -4,9 +4,27 @@
 
 This package is automatically installed with the Formidable Framework.
 
+npm:
+
 ```
 npm i @formidablejs/mailer
 ```
+
+yarn:
+
+```
+yarn add @formidablejs/mailer
+```
+
+## Publish
+
+Once the package has been installed, you can publish the package:
+
+```
+craftsman publish --package=@formidablejs/mailer --tag="components,config"
+```
+
+> Note: Formidable will automatically publish the package during project setup.
 
 ## Introduction
 

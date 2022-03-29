@@ -25,7 +25,7 @@ yarn add @formidablejs/mailer
 Once the package has been installed, you can publish the package:
 
 ```
-craftsman publish --package=@formidablejs/mailer --tag="components,config"
+node craftsman package:publish --package=@formidablejs/mailer --tag="components,config"
 ```
 
 > Note: Formidable will automatically publish the package during project setup.
@@ -161,7 +161,7 @@ export default WelcomeEmail < Mailable
 	prop name\String
 
 	def constructor name\String
-		super!
+		super()
 
 		self.subject = 'Welcome to Formidable'
 		self.name = name
@@ -190,7 +190,7 @@ export default WelcomeEmail < Mailable
 	prop name\String
 
 	def constructor name\String
-		super!
+		super()
 
 		self.subject = 'Welcome to Formidable'
 		self.name = name

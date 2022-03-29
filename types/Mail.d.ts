@@ -1,9 +1,8 @@
-export = Mail;
-declare class Mail {
+export class Mail {
     /**
     @param {String[]|String} emails
     */
-    static to(emails: string[] | string): import("./Mail");
+    static to(emails: string[] | string): Mail;
     /**
     @param {Object} config
     */
@@ -31,20 +30,20 @@ declare class Mail {
     /**
     @param {String[]|String} emails
     */
-    cc(emails: string[] | string): import("./Mail");
+    cc(emails: string[] | string): Mail;
     /**
     @param {String[]|String} emails
     */
-    bcc(emails: string[] | string): import("./Mail");
+    bcc(emails: string[] | string): Mail;
     /**
     @param {String} name
     @param {String} email
     */
-    from(name: string, email: string): import("./Mail");
+    from(name: string, email: string): Mail;
     /**
     @param {String} email
     */
-    replyTo(email: string): import("./Mail");
+    replyTo(email: string): Mail;
     /**
     @param {String} content
     @param {String} text
@@ -53,7 +52,7 @@ declare class Mail {
     /**
     @param {Object[]|Object} attachment
     */
-    attach(attachment?: any[] | any): import("./Mail");
+    attach(attachment?: any[] | any): Mail;
     /**
     @param {Mailable} mailable
     */
@@ -61,8 +60,11 @@ declare class Mail {
     /**
     @param {String} subject
     */
-    subject(subject: string): import("./Mail");
-    [Ψ__init__]($$?: any): void;
+    subject(subject: string): Mail;
+    [$2]($$?: {}): void;
+    [$1]($$?: any): void;
 }
-import Mailable = require("./Mailable");
-declare const Ψ__init__: unique symbol;
+import { Mailable } from "./Mailable";
+declare const $2: unique symbol;
+declare const $1: unique symbol;
+export {};

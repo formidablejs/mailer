@@ -1,11 +1,11 @@
-const Mailable = require './Mailable'
-const nodemailer = require 'nodemailer'
+import { Mailable } from './Mailable'
+import nodemailer from 'nodemailer'
 
 const settings = {
 	config: {}
 }
 
-module.exports = class Mail
+export class Mail
 
 	prop toList\String[]|String
 	prop ccList\String[]|String

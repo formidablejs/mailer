@@ -1,9 +1,12 @@
-export = MailServiceResolver;
-declare class MailServiceResolver {
+export class MailServiceResolver {
     constructor(app: any);
     app: any;
     boot(): any;
-    register(): import("./MailServiceResolver");
-    [Ψ__init__]($$?: any): void;
+    register(): any;
+    configure(): any;
+    [$2]($$?: {}): void;
+    [$1]($$?: any): void;
 }
-declare const Ψ__init__: unique symbol;
+declare const $2: unique symbol;
+declare const $1: unique symbol;
+export {};

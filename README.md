@@ -1,5 +1,9 @@
 # Formidable Mailer
 
+![Test](https://github.com/formidablejs/mailer/actions/workflows/test.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/@formidablejs/mailer)
+![GitHub](https://img.shields.io/github/license/formidablejs/mailer)
+
 ## Introduction
 
 Formidable Mailer is a simple mailer library for sending emails. This mailer package is built on top of [nodemailer](https://nodemailer.com/).
@@ -25,7 +29,7 @@ yarn add @formidablejs/mailer
 Once the package has been installed, you can publish the package:
 
 ```
-craftsman publish --package=@formidablejs/mailer --tag="components,config"
+node craftsman package:publish --package=@formidablejs/mailer --tag="components,config"
 ```
 
 > Note: Formidable will automatically publish the package during project setup.
@@ -161,7 +165,7 @@ export default WelcomeEmail < Mailable
 	prop name\String
 
 	def constructor name\String
-		super!
+		super()
 
 		self.subject = 'Welcome to Formidable'
 		self.name = name
@@ -190,7 +194,7 @@ export default WelcomeEmail < Mailable
 	prop name\String
 
 	def constructor name\String
-		super!
+		super()
 
 		self.subject = 'Welcome to Formidable'
 		self.name = name

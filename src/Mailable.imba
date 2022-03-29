@@ -1,4 +1,4 @@
-module.exports = class Mailable
+export class Mailable
 
 	prop subject\String
 	prop attachments\Object[]

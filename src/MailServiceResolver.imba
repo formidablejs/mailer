@@ -1,14 +1,7 @@
-const Mail = require './Mail'
+import { ServiceResolver } from '@formidablejs/framework'
+import { Mail } from './Mail'
 
-module.exports = class MailServiceResolver
-
-	prop app
-
-	def constructor app
-		self.app = app
+export class MailServiceResolver < ServiceResolver
 
 	def boot
 		Mail.configure(self.app.config.get 'mail')
-
-	def register
-		self

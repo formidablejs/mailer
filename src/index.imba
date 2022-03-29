@@ -1,3 +1,9 @@
-exports.Mail = require './Mail'
-exports.Mailable = require './Mailable'
-exports.MailServiceResolver = require './MailServiceResolver'
+import { Mail } from './Mail'
+import { Mailable } from './Mailable'
+import { MailServiceResolver } from './MailServiceResolver'
+
+export {
+	Mail
+	Mailable
+	MailServiceResolver
+}

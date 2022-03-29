@@ -1,6 +1,7 @@
-const Mail = require './Mail'
+import { Mailable } from './Mailable'
+import { Mail } from './Mail'
 
-module.exports = class MailServiceResolver
+export class MailServiceResolver
 
 	prop app
 
@@ -8,7 +9,19 @@ module.exports = class MailServiceResolver
 		self.app = app
 
 	def boot
-		Mail.configure(self.app.config.get 'mail')
+		configure!
 
+		self.app.onResponse do(response, request, reply)
+			if !(response instanceof Mailable) then return
+			
+			reply.header 'content-type', 'text/html'
+
+			reply.send String(response.render ? response.render! : '<p></p>')
+
+			reply.sent = true
+		
 	def register
-		self
+		null
+
+	def configure
+		Mail.configure(self.app.config.get 'mail')

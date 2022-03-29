@@ -1,12 +1,14 @@
-export = Mailable;
-declare class Mailable {
+export class Mailable {
     constructor($$?: any);
     subject: any;
     attachments: any;
     /**
     @param {Object[]|Object} attachment
     */
-    attach(attachment?: any[] | any): import("./Mailable");
-    [Ψ__init__]($$?: any): void;
+    attach(attachment?: any[] | any): Mailable;
+    [$2]($$?: {}): void;
+    [$1]($$?: any): void;
 }
-declare const Ψ__init__: unique symbol;
+declare const $2: unique symbol;
+declare const $1: unique symbol;
+export {};

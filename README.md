@@ -1,5 +1,9 @@
 # Formidable Mailer
 
+![Test](https://github.com/formidablejs/mailer/actions/workflows/test.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/@formidablejs/mailer)
+![GitHub](https://img.shields.io/github/license/formidablejs/mailer)
+
 ## Introduction
 
 Formidable Mailer is a simple mailer library for sending emails. This mailer package is built on top of [nodemailer](https://nodemailer.com/).

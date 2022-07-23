@@ -4,9 +4,9 @@ export class MailServiceResolver {
     boot(): any;
     register(): any;
     configure(): any;
-    [$2]($$?: {}): void;
-    [$1]($$?: any): void;
+    [$__patch__$]($$?: {}): void;
+    [$__init__$]($$?: any, deep?: boolean): void;
 }
-declare const $2: unique symbol;
-declare const $1: unique symbol;
+declare const $__patch__$: unique symbol;
+declare const $__init__$: unique symbol;
 export {};

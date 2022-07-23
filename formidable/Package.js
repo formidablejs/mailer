@@ -1,5 +1,13 @@
 exports.Package = class Package {
-  publish() {
+  publish(language = 'imba') {
+    const ext = language.toLowerCase() == 'imba'
+      ? 'imba' : (
+        language.toLowerCase() == 'typescript' ? 'ts' : 'imba'
+      )
+
+    const configKey = `config/mail.${ext}`;
+    const configValue = `./formidable/config.${ext}`;
+
     return {
       'components': {
         paths: {
@@ -8,7 +16,7 @@ exports.Package = class Package {
       },
       config: {
         paths: {
-          'config/mail.imba': './formidable/config.imba'
+          [configKey]: configValue
         }
       }
     }

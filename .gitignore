@@ -2,6 +2,7 @@
 /public
 /.temp
 /output
+/lib
 .env
 .env.backup
 npm-debug.log

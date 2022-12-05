@@ -67,6 +67,7 @@ export class Mail {
     [$__init__$]($$?: any, deep?: boolean): void;
 }
 import { Mailable } from "./Mailable";
+import { MailHandle } from "../ts";
 declare const $__patch__$: unique symbol;
 declare const $__init__$: unique symbol;
 export {};

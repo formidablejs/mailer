@@ -1,14 +1,14 @@
 export class Mail {
     /**
-    @param {String[]|String} emails
+    @param {string[]|string} emails
     */
     static to(emails: string[] | string): Mail;
     /**
-    @param {Object} config
+    @param {object} config
     */
-    static configure(config: any): any;
+    static configure(config: object): any;
     /**
-    @param {String[]|String} emails
+    @param {string[]|string} emails
     */
     constructor(emails: string[] | string);
     toList: string;
@@ -20,51 +20,54 @@ export class Mail {
     emailAttachments: any;
     transport(): any;
     /**
-    @param {Object} mailer
+    @param {object} mailer
     */
-    smtpTransport(mailer: any): any;
+    smtpTransport(mailer: object): any;
     /**
-    @param {Object} mailer
+    @param {object} mailer
     */
-    sendmailTransport(mailer: any): any;
+    sendmailTransport(mailer: object): any;
     /**
-    @param {String[]|String} emails
+    @param {string[]|string} emails
     */
     cc(emails: string[] | string): Mail;
     /**
-    @param {String[]|String} emails
+    @param {string[]|string} emails
     */
     bcc(emails: string[] | string): Mail;
     /**
-    @param {String} name
-    @param {String} email
+    @param {string} name
+    @param {string} email
     */
     from(name: string, email: string): Mail;
     /**
-    @param {String} email
+    @param {string} email
     */
     replyTo(email: string): Mail;
     /**
-    @param {String} content
-    @param {String} text
+    @param {string} content
+    @param {string|MailHandle} argument
+    @param {MailHandle} config
     */
-    raw(content: string, text?: string): Promise<any>;
+    raw(content: string, argument?: string | MailHandle, config?: MailHandle): Promise<any>;
     /**
-    @param {Object[]|Object} attachment
+    @param {object[]|object} attachment
     */
-    attach(attachment?: any[] | any): Mail;
+    attach(attachment?: object[] | object): Mail;
     /**
     @param {Mailable} mailable
+    @param {MailHandle} config
     */
-    send(mailable: Mailable): Promise<any>;
+    send(mailable: Mailable, config?: MailHandle): Promise<any>;
     /**
-    @param {String} subject
+    @param {string} subject
     */
     subject(subject: string): Mail;
     [$__patch__$]($$?: {}): void;
     [$__init__$]($$?: any, deep?: boolean): void;
 }
 import { Mailable } from "./Mailable";
+import { MailHandle } from "../ts";
 declare const $__patch__$: unique symbol;
 declare const $__init__$: unique symbol;
 export {};

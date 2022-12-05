@@ -14,13 +14,13 @@ This package is automatically installed with the Formidable Framework.
 
 npm:
 
-```
+```bash
 npm i @formidablejs/mailer
 ```
 
 yarn:
 
-```
+```bash
 yarn add @formidablejs/mailer
 ```
 
@@ -28,7 +28,7 @@ yarn add @formidablejs/mailer
 
 Once the package has been installed, you can publish the package:
 
-```
+```bash
 node craftsman package:publish --package=@formidablejs/mailer --tag="components,config"
 ```
 
@@ -76,23 +76,23 @@ Mail.to('email@example').raw('This is a test email')
 
 Here's an example of how to send an email with an attachment:
 
-```js
+```imba
 import { Mail } from '@formidablejs/mailer'
 import path from 'path'
 
-const file\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
+const file\string = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
 
 Mail.to('email@example').attach({ path: file }).raw('This is a test email')
 ```
 
 You can also send multiple attachments:
 
-```js
+```imba
 import { Mail } from '@formidablejs/mailer'
 import path from 'path'
 
-const formidableLogo\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'formidable.png')
-const imbaLogo\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
+const formidableLogo\string = path.join(process.cwd!, 'storage', 'framework', 'logos', 'formidable.png')
+const imbaLogo\string = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
 
 Mail.to('email@example')
 	.attach({ path: formidableLogo })
@@ -102,12 +102,12 @@ Mail.to('email@example')
 
 You may also pass an array of attachments instead of a single attachment each time you call `attach`:
 
-```js
+```imba
 import { Mail } from '@formidablejs/mailer'
 import path from 'path'
 
-const formidableLogo\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'formidable.png')
-const imbaLogo\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
+const formidableLogo\string = path.join(process.cwd!, 'storage', 'framework', 'logos', 'formidable.png')
+const imbaLogo\string = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
 
 Mail.to('email@example')
 	.attach([
@@ -152,11 +152,54 @@ Mail.to('email@example')
 
 > Note, the `cid` must be unique for each attachment.
 
+## Email Events
+
+### onSuccess
+
+`onSuccess` runs if the email was successfully sent:
+
+```imba
+import { Mail } from '@formidablejs/mailer'
+import type { SentMessageInfo } from '@formidablejs/mailer'
+
+Mail.to('email@example').send(new Welcome, {
+	onSuccess: do(response\SentMessageInfo)
+		console.log response.messageId
+})
+```
+
+### onError
+
+`onError` runs when the email fails:
+
+```imba
+import { Mail } from '@formidablejs/mailer'
+
+Mail.to('email@example').send(new Welcome, {
+	onError: do(reason)
+		console.log reason
+})
+```
+
+### onComplete
+
+`onComplete` runs when the email is task is done:
+
+```imba
+import { Mail } from '@formidablejs/mailer'
+import type { SentMessageInfo } from '@formidablejs/mailer'
+
+Mail.to('email@example').send(new Welcome, {
+	onComplete: do
+		console.log 'done'
+})
+```
+
 ## Sending HTML Emails
 
 Before you can start sending html emails, you will need to create a new Mailable. All Mailables must extend the `Mailable` class:
 
-```py
+```imba
 import { Mailable } from '@formidablejs/mailer'
 
 export default WelcomeEmail < Mailable
@@ -184,14 +227,14 @@ Mail.to('email@example').send(new WelcomeEmail)
 
 You can attach files to the email by passing an array of attachment objects or a single object to the `attach` method:
 
-```js
+```imba
 import { Mailable } from '@formidablejs/mailer'
 import path from 'path'
 
 export default WelcomeEmail < Mailable
 
-	prop subject\String
-	prop name\String
+	prop subject\string
+	prop name\string
 
 	def constructor name\String
 		super()
@@ -199,7 +242,7 @@ export default WelcomeEmail < Mailable
 		self.subject = 'Welcome to Formidable'
 		self.name = name
 
-		const file\String = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
+		const file\string = path.join(process.cwd!, 'storage', 'framework', 'logos', 'imba.png')
 
 		self.attach({ path: file })
 
@@ -213,14 +256,14 @@ Here is a list of all the methods available on the `Mail` class.
 
  Method    | Params                                  | Description
 -----------|:----------------------------------------|:------------------------------------------
- `to`      | `recipient: String[] or String`         | Recipients of the email.
- `cc`      | `recipient: String[] or String`         | Carbon copy recipients of the email.
- `bcc`     | `recipient: String[] or String`         | Blind carbon copy recipients of the email.
- `from`    | `name: String, email: String`           | Sender of the email.
- `replyTo` | `email: String`                         | Reply to address of the email.
- `attach`  | `Object[] or Object`                    | Add attachments to the email.
- `raw`     | `content: String; text: String or null` | Raw email content.
- `subject` | `subject: String`                       | Subject of the email.
+ `to`      | `recipient: string[] or string`         | Recipients of the email.
+ `cc`      | `recipient: string[] or string`         | Carbon copy recipients of the email.
+ `bcc`     | `recipient: string[] or string`         | Blind carbon copy recipients of the email.
+ `from`    | `name: string, email: string`           | Sender of the email.
+ `replyTo` | `email: string`                         | Reply to address of the email.
+ `attach`  | `object[] or object`                    | Add attachments to the email.
+ `raw`     | `content: string; text: string or null` | Raw email content.
+ `subject` | `subject: string`                       | Subject of the email.
  `send`    | `mailable: Mailable`                    | Send the email with a Mailable class.
 
 Security

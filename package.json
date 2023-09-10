@@ -1,6 +1,6 @@
 {
 	"name": "@formidablejs/mailer",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"description": "Formidablejs mailer",
 	"main": "lib/index.js",
 	"types": "types/index.d.ts",
@@ -18,7 +18,7 @@
 	"author": "Donald Pakkies <donaldpakkies@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"nodemailer": "^6.7.7"
+		"nodemailer": "^6.9.5"
 	},
 	"devDependencies": {
 		"@types/jest": "^28.1.6",

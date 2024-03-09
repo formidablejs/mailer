@@ -103,7 +103,12 @@ export class Mail
 				config.onComplete(response) if config.onComplete
 			)
 		else
-			await self.transport!.sendMail(mail)
+			if settings.config.ignore_errors && settings.config.ignore_errors === true
+				self.transport!.sendMail(mail).catch(do(reason)
+					console.warm(reason)
+				)
+			else
+				await self.transport!.sendMail(mail)
 
 	def attach attachment\object[]|object = []
 		if Array.isArray(attachment)

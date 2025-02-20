@@ -7,6 +7,17 @@ export default {
 
 	default: 'smtp'
 
+
+	# --------------------------------------------------------------------------
+	# Mailer Error Handling
+	# --------------------------------------------------------------------------
+	#
+	# This option controls whether or not Formidable will ignore errors when
+	# sending email. Typically you should set this value to false so that any
+	# errors will be shown in the console.
+
+	ignore_errors: false
+
 	# --------------------------------------------------------------------------
 	# Mailer Configuration
 	# --------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
 	"name": "@formidablejs/mailer",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"description": "Formidablejs mailer",
 	"main": "lib/index.js",
 	"types": "types/index.d.ts",
